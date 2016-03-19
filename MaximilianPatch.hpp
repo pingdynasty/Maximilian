@@ -42,6 +42,8 @@ public:
       pair[0] = left[i];
       pair[1] = right[i];
       maxi::play(pair);
+      left[i] = pair[0];
+      right[i] = pair[1];
     }
   }
 };
