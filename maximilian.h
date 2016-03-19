@@ -34,9 +34,9 @@
 #define MAXIMILIAN_H
 
 //#define MAXIMILIAN_PORTAUDIO
-#define MAXIMILIAN_RT_AUDIO
+// #define MAXIMILIAN_RT_AUDIO
 
-
+/*
 #include <iostream>
 #include <fstream>
 #include <string.h>
@@ -45,7 +45,7 @@
 #ifdef _WIN32 //|| _WIN64
 #include <algorithm>
 #endif
-
+*/
 using namespace std;
 #ifndef PI
 #define PI  3.1415926535897932384626433832795
@@ -204,7 +204,7 @@ public:
 class maxiSample  {
 	
 private:
-	string 	myPath;
+  //	string 	myPath;
 	int 	myChunkSize;
 	int	mySubChunk1Size;
 	int		readChannel;
@@ -235,7 +235,7 @@ public:
 	{
 //		if (myData) free(myData);
         if (temp) free(temp);
-        printf("freeing SampleData");
+	//        printf("freeing SampleData");
 
 	}
 	
@@ -256,9 +256,9 @@ public:
         return *this;
     }
 	
-	bool load(string fileName, int channel=0);
+    //	bool load(string fileName, int channel=0);
     
-    bool loadOgg(string filename,int channel=0);
+    //    bool loadOgg(string filename,int channel=0);
 	
 	void trigger();
 	
@@ -313,10 +313,12 @@ public:
     double bufferPlay(unsigned char &bufferin,double frequency, double start, double end);
     
     double bufferPlay4(unsigned char &bufferin,double frequency, double start, double end);
+#if 0
     bool save() {
         return save(myPath);
     }
-    
+
+
 	bool save(string filename)
 	{
         fstream myFile (filename.c_str(), ios::out | ios::binary);
@@ -340,7 +342,7 @@ public:
         
         return true;
 	}
-	
+
 	// return a printable summary of the wav file
 	char *getSummary()
 	{
@@ -349,7 +351,7 @@ public:
 		std::cout << myDataSize;
 		return summary;
 	}
-    
+#endif    
     void normalise(float maxLevel = 0.99);  //0 < maxLevel < 1.0
     void autoTrim(float alpha = 0.3, float threshold = 6000, bool trimStart = true, bool trimEnd = true); //alpha of lag filter (lower == slower reaction), threshold to mark start and end, < 32767
 };
@@ -744,7 +746,7 @@ public:
     void setSustain(double sustainD,bool setall=true);
     void setRelease(double releaseD,bool setall=true);
     void setPosition(double positionD,bool setall=true);
-    void load(string inFile,bool setall=true);
+    //    void load(string inFile,bool setall=true);
     void setNumVoices(int numVoices);
     double position;
     void trigger();

@@ -1,4 +1,3 @@
-
 /*
  *  maximilian.cpp
  *  platform independent synthesis library using portaudio or rtaudio
@@ -30,9 +29,16 @@
  *	OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+//#include <algorithm>
+#include "basicmaths.h"
+#include <math.h>
+
+namespace maxi {
 
 #include "maximilian.h"
-#include "math.h"
+
+// #include "maximilian.h"
+// #include "math.h"
 
 /*  Maximilian can be configured to load ogg vorbis format files using the 
 *   loadOgg() method.
@@ -528,6 +534,7 @@ double *maxiMix::ambisonic(double input,double eight[8],double x,double y,double
 	return(eight);
 }
 
+#if 0
 //This is the maxiSample load function. It just calls read.
 bool maxiSample::load(string fileName, int channel) {
 	myPath = fileName;
@@ -545,8 +552,8 @@ bool maxiSample::loadOgg(string fileName, int channel) {
     free(temp);
     myDataSize = stb_vorbis_decode_filename(const_cast<char*>(fileName.c_str()), &channelx, &temp);
     result = myDataSize > 0;
-    printf("\nchannels = %d\nlength = %d",channelx,myDataSize);
-    printf("\n");
+    //    printf("\nchannels = %d\nlength = %d",channelx,myDataSize);
+    //    printf("\n");
     myChannels=(short)channelx;
     length=myDataSize;
     mySampleRate=44100;
@@ -563,6 +570,7 @@ bool maxiSample::loadOgg(string fileName, int channel) {
 #endif
     return 0;
 }
+#endif
 
 //This sets the playback position to the start of a sample
 void maxiSample::trigger() {
@@ -570,6 +578,7 @@ void maxiSample::trigger() {
     recordPosition = 0;
 }
 
+#if 0
 //This is the main read function.
 bool maxiSample::read()
 {
@@ -626,7 +635,7 @@ bool maxiSample::read()
 		length=myDataSize*(0.5/myChannels);
 		inFile.close(); // close the input file
 		
-        cout << "Ch: " << myChannels << ", len: " << length << endl;
+		//        cout << "Ch: " << myChannels << ", len: " << length << endl;
 		if (myChannels>1) {
 			int position=0;
 			int channel=readChannel*2;
@@ -644,13 +653,14 @@ bool maxiSample::read()
 		
 	}else {
 //		cout << "ERROR: Could not load sample: " <<myPath << endl; //This line seems to be hated by windows 
-        printf("ERROR: Could not load sample.");
+//        printf("ERROR: Could not load sample.");
 
 	}
 	
 	
 	return result; // this should probably be something more descriptive
 }
+#endif
 
 //This plays back at the correct speed. Always loops.
 double maxiSample::play() {
@@ -1087,7 +1097,7 @@ void maxiSample::getLength() {
 }
 
 void maxiSample::setLength(unsigned long numSamples) {
-    cout << "Length: " << numSamples << endl;
+  //    cout << "Length: " << numSamples << endl;
     short *newData = (short*) malloc(sizeof(short) * numSamples);
     if (NULL!=temp) {
         unsigned long copyLength = min((unsigned long)length, numSamples);
@@ -1147,7 +1157,7 @@ void maxiSample::autoTrim(float alpha, float threshold, bool trimStart, bool tri
         }
     }
     
-    cout << "Autotrim: start: " << startMarker << ", end: " << endMarker << endl;
+    //    cout << "Autotrim: start: " << startMarker << ", end: " << endMarker << endl;
     
     int newLength = endMarker - startMarker;
     if (newLength > 0) {
@@ -1826,6 +1836,7 @@ double maxiSampler::play() {
     
 }
 
+#if 0
 void maxiSampler::load(string inFile, bool setall) {
     
     if (setall) {
@@ -1843,6 +1854,7 @@ void maxiSampler::load(string inFile, bool setall) {
     
     
 }
+#endif
 
 void maxiSampler::setPitch(double pitchIn, bool setall) {
     
@@ -2006,3 +2018,4 @@ void maxiSampler::trigger() {
 
 
 
+}
