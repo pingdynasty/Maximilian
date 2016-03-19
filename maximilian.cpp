@@ -32,6 +32,7 @@
 //#include <algorithm>
 #include "basicmaths.h"
 #include <math.h>
+#include <string.h>
 
 namespace maxi {
 
