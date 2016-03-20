@@ -36,6 +36,9 @@
 //#define MAXIMILIAN_PORTAUDIO
 // #define MAXIMILIAN_RT_AUDIO
 
+// hack to prevent double precision
+#define double float
+
 /*
 #include <iostream>
 #include <fstream>

@@ -34,8 +34,6 @@
 #include <math.h>
 #include <string.h>
 
-namespace maxi {
-
 #include "maximilian.h"
 
 // #include "maximilian.h"
@@ -2014,9 +2012,4 @@ void maxiSampler::trigger() {
     currentVoice++;
     currentVoice=currentVoice%voices;
     
-}
-
-
-
-
 }
