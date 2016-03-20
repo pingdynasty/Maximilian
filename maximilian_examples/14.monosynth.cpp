@@ -35,7 +35,7 @@ void play(double *output) {
     if (lastCount!=currentCount) {//if we have a new timer int this sample, play the sound
         ADSR.trigger=1;
         
-        cout << "tick\n";//the clock ticks
+        // cout << "tick\n";//the clock ticks
         
         lastCount=0;//set lastCount to 0
     }
