@@ -7,26 +7,26 @@
 
 class MaximilianPatch : public Patch {
 private:
-//This shows how to use maximilian to do basic amplitude modulation. Amplitude modulation is when you multiply waves together. In maximilian you just use the * inbetween the two waveforms.
-
-maxiOsc mySine,myOtherSine;//Two oscillators. They can be called anything. They can be any of the available waveforms. These ones will be sinewaves
-
-void setup() {//some inits
-    //nothing to go here this time
-}
-
-void play(double *output) {
-    
-    // This form of amplitude modulation is straightforward multiplication of two waveforms.
-    // Notice that the maths is different to when you add waves.
-    // The waves aren't 'beating'. Instead, the amplitude of one is modulating the amplitude of the other
-    // Remember that the sine wave has positive and negative sections as it oscillates.
-    // When you multiply something by -1, its phase is inverted but it retains its amplitude.
-    // So you hear 2 waves per second, not 1, even though the frequency is 1.
-    output[0]=mySine.sinewave(440)*myOtherSine.sinewave(1);
-    output[1]=output[0];
-
-}
+// #include "maximilian_examples/1.TestTone.cpp"
+// #include "maximilian_examples/2.TwoTones.cpp"
+// #include "maximilian_examples/3.AM1.cpp"
+// #include "maximilian_examples/4.AM2.cpp"
+// #include "maximilian_examples/5.FM1.cpp"
+// #include "maximilian_examples/6.FM2.cpp"
+// #include "maximilian_examples/7.Counting1.cpp"
+// #include "maximilian_examples/8.Counting2.cpp"
+// #include "maximilian_examples/8.Counting3.cpp"
+// #include "maximilian_examples/8.Counting4.cpp"
+// #include "maximilian_examples/9.Envelopes.cpp"
+// #include "maximilian_examples/10.Filters.cpp"
+// #include "maximilian_examples/11.Mixing.cpp"
+// #include "maximilian_examples/13.Advanced-Filters.cpp"
+#include "maximilian_examples/14.monosynth.cpp" // 47%
+// #include "maximilian_examples/15.polysynth.cpp" // 270%
+// #include "maximilian_examples/16.Replicant.cpp" // 142%
+// #include "maximilian_examples/17.Compressor.cpp" // missing maxiSample::load
+// #include "maximilian_examples/19.Enveloping2.cpp" // missing maxiSample::load
+// #include "maximilian_examples/20.FFT_example.cpp" // missing/failing FFT lib
 
 public:
   MaximilianPatch(){

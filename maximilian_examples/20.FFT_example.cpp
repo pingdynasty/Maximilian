@@ -1,6 +1,7 @@
 
 #include "maximilian.h"
-#include "libs/maxim.h"
+#include "libs/maxiFFT.h"
+// #include "libs/maxim.h"
 
 maxiOsc mySine, myPhasor; // This is the oscillator we will use to generate the test tone
 maxiFFT myFFT;
