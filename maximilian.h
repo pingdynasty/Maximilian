@@ -224,7 +224,7 @@ public:
 	short 	myChannels;
 	int   	mySampleRate;
 	long length;
-	void getLength();
+	long getLength();
     void setLength(unsigned long numSamples);  
     short 	myBitsPerSample;
 
@@ -800,6 +800,39 @@ public:
     bool tick;
     
 };
-
+//
+//class maxiRecorder
+//{
+//public:
+//    maxiRecorder();
+//    ~maxiRecorder();
+//
+//    void                setup(std::string _filename);
+//    void                startRecording();
+//    void                stopRecording();
+//    bool                isRecording() const;
+//    void                passData(double* _in, int _inBufferSize);
+//    void                passData(float*  _in, int _inBufferSize);
+//    void                saveToWav();
+//
+//protected:
+////    std::vector<double> getProcessedData();
+//    void                update();
+//    void                enqueueBuffer();
+//    void                freeResources();
+//
+//private:  
+//    template <typename T>
+//    void                write(std::ofstream& _stream, const T& _t);
+//    const int           bufferQueueSize;
+//    const int           bufferSize;
+//    long int            bufferIndex;
+//    long int            recordedAmountFrames;
+////    std::queue<double*> bufferQueue;
+////    std::queue<double*> savedBuffers;
+//    bool                doRecord;
+//    std::string         filename;
+//};
+//
 
 #endif
